@@ -42,7 +42,6 @@ body {
 /* Hero / Banner Section */
 .banner-section {
   width: 100%;
-  line-height: 0;
   position: relative;
 }
 
@@ -51,6 +50,61 @@ body {
   height: auto;
   display: block;
   object-fit: cover;
+}
+
+/* Hero Intro Card */
+.hero-intro-card {
+  padding: 22px 18px 24px 18px;
+  background: linear-gradient(180deg, #FFFDF8 0%, #FFFBEA 100%);
+  border-bottom: 2px solid #EFE4C8;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(202, 138, 4, 0.08);
+}
+
+.hero-headline {
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.35;
+  color: var(--dark-charcoal);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.2px;
+}
+
+.hero-supporting-text {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #57534E;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+}
+
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--primary-mustard);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 15.5px;
+  font-weight: 800;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(202, 138, 4, 0.4);
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+}
+
+.hero-cta-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(202, 138, 4, 0.55);
+}
+
+.hero-cta-btn:active {
+  transform: translateY(0);
 }
 
 /* Content Body */
@@ -1647,6 +1701,163 @@ body {
 
 .sticky-order-btn:active {
   transform: translateY(0);
+}
+
+
+/* ============================================================
+   Section 9: Frequently Asked Questions (FAQ Accordion)
+   Clean, Modern & Premium Card UI
+   ============================================================ */
+.faq-section {
+  width: 100%;
+}
+
+.faq-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.faq-item {
+  background: #FFFFFF;
+  border: 1.5px solid #F3E8CE;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 12px rgba(202, 138, 4, 0.06);
+}
+
+.faq-item:hover {
+  border-color: var(--primary-mustard);
+  box-shadow: 0 4px 16px rgba(202, 138, 4, 0.12);
+}
+
+.faq-item.active {
+  border-color: var(--primary-mustard);
+  box-shadow: 0 6px 20px rgba(202, 138, 4, 0.16);
+}
+
+.faq-question-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  text-align: left;
+  gap: 12px;
+  font-family: inherit;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.faq-q-text {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--dark-charcoal);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.faq-q-text strong {
+  color: var(--primary-mustard);
+  font-weight: 900;
+  margin-right: 4px;
+}
+
+.faq-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #FFFBEA;
+  border: 1.5px solid #EAE0C7;
+  color: var(--primary-mustard);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease;
+}
+
+.faq-item.active .faq-icon-wrap {
+  transform: rotate(180deg);
+  background-color: var(--primary-mustard);
+  color: #FFFFFF;
+  border-color: var(--primary-mustard);
+}
+
+.faq-answer-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+}
+
+.faq-item.active .faq-answer-panel {
+  max-height: 500px;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.faq-answer-content {
+  padding: 0 18px 18px 18px;
+  border-top: 1px dashed #F1E8D2;
+  padding-top: 14px;
+}
+
+.faq-answer-content p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #44403C;
+  font-weight: 500;
+  margin: 0;
+}
+
+
+/* ============================================================
+   Section 10: Disclaimer (Subtle & Discreet / "Thoda Invisible")
+   ============================================================ */
+.disclaimer-section {
+  width: 100%;
+  margin-top: 6px;
+  padding-top: 6px;
+}
+
+.disclaimer-box {
+  background: transparent;
+  border-top: 1px dashed rgba(202, 138, 4, 0.22);
+  padding: 16px 12px 10px 12px;
+  text-align: center;
+  opacity: 0.55;
+  transition: opacity 0.3s ease;
+}
+
+.disclaimer-box:hover {
+  opacity: 0.85;
+}
+
+.disclaimer-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #A8A29E;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 0 0 6px 0;
+}
+
+.disclaimer-text {
+  font-size: 11px;
+  line-height: 1.55;
+  color: #A8A29E;
+  font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0;
 }
 
 

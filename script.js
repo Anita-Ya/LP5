@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Smooth scroll to Order / Inquiry section on CTA click
   const ctaBtn = document.querySelector('.cta-button');
   const stickyOrderBtn = document.getElementById('sticky-order-btn');
+  const heroCtaBtn = document.getElementById('hero-cta-btn');
   const orderSection = document.getElementById('order-section');
+  const productSection = document.querySelector('.product-section');
 
   const scrollToOrder = () => {
     if (orderSection) {
@@ -15,8 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const scrollToProduct = () => {
+    if (productSection) {
+      productSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   if (ctaBtn) ctaBtn.addEventListener('click', scrollToOrder);
   if (stickyOrderBtn) stickyOrderBtn.addEventListener('click', scrollToOrder);
+  if (heroCtaBtn) heroCtaBtn.addEventListener('click', scrollToProduct);
 
   // Modal Elements
   const thankyouModal = document.getElementById('thankyou-modal');
@@ -176,4 +185,33 @@ document.addEventListener('DOMContentLoaded', () => {
       clearError(phoneWrap, phoneError);
     });
   }
+
+  // FAQ Accordion Toggle Interaction
+  const faqButtons = document.querySelectorAll('.faq-question-btn');
+  faqButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const parentItem = btn.closest('.faq-item');
+      if (!parentItem) return;
+
+      const isCurrentlyActive = parentItem.classList.contains('active');
+
+      // Close other open accordion items for clean UX
+      document.querySelectorAll('.faq-item.active').forEach((activeItem) => {
+        if (activeItem !== parentItem) {
+          activeItem.classList.remove('active');
+          const otherBtn = activeItem.querySelector('.faq-question-btn');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current item
+      if (isCurrentlyActive) {
+        parentItem.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        parentItem.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 });
